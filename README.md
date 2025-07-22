@@ -7,16 +7,16 @@
 This is a repository for 3I/ATLAS paper in prep.
 Figures are made in `./plot`.
 
-## Analysis (in /analysis)
+## Analysis (in `/analysis`)
 Do photometry and derive magnitudes and colors of 3I. The results (`mag_3I_20250715.txt` and `col_3I_20250715.txt`) are saved in `/data`
 * `photometry_3I.ipynb`: Do photometry of 3I (and Popescu for validation)
 * `derive_mag_col_3I.ipynb`: Derive magnitudes and colors of 3I (and Popescu for validation)
 
-## Data (in /data)
+## Data (in `/data`)
 * `mag_3I_20250715.txt`: Calibrated magnitude of 3I/ATLAS on 2025-07-15
 * `col_3I_20250715.txt`: Calibrated colors of 3I/ATLAS on 2025-07-15
 
-## Plotting figures in the paper (hit commands in /plot)
+## Plotting figures in the paper (hit commands in `/plot`)
 ```
 # Obtain ephem
 python3 ../script/I_fig_ephem.py --obtain
