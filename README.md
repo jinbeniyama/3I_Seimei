@@ -13,6 +13,8 @@ Do photometry and derive magnitudes and colors of 3I. The results (`mag_3I_20250
 * `derive_mag_col_3I.ipynb`: Derive magnitudes and colors of 3I (and Popescu for validation)
 
 ## Data (in `/data`)
+* `photres_3I_mean_600s_20250715.txt`: Photometric results of 3I
+* `photres_ref_mean_600s_20250715.txt`: Photometric results of reference stars
 * `ephem_202500601to20260131_500.txt`: Ephemeris of 3I/ATLAS
 * `mag_3I_20250715.txt`: Calibrated magnitude of 3I/ATLAS on 2025-07-15
 * `col_3I_20250715.txt`: Calibrated colors of 3I/ATLAS on 2025-07-15
