@@ -13,6 +13,7 @@ Do photometry and derive magnitudes and colors of 3I. The results (`mag_3I_20250
 * `derive_mag_col_3I.ipynb`: Derive magnitudes and colors of 3I (and Popescu for validation)
 
 ## Data (in `/data`)
+* `ephem_202500601to20260131_500.txt`: Ephemeris of 3I/ATLAS
 * `mag_3I_20250715.txt`: Calibrated magnitude of 3I/ATLAS on 2025-07-15
 * `col_3I_20250715.txt`: Calibrated colors of 3I/ATLAS on 2025-07-15
 
@@ -36,7 +37,7 @@ python3 ../script/I_fig_cutout.py
 
 ```
 # Lightcurvea
-python3 ../script/I_fig_lc.py ../data/3I_mag_20250715.txt
+python3 ../script/I_fig_lc.py ../data/mag_3I_20250715.txt
 ```
 
 ```
