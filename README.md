@@ -53,5 +53,5 @@ python3 ../script/I_fig_ref.py ../data/col_3I_20250715.txt 6 --outtype pdf
 ```
 
 ## Dependencies
-This repository is depending on `Python`, `NumPy`, `SciPy`, `SEP`, `Astropy`, `Astroquery`.
-Scripts are developed on `Python 3.9.15`, `NumPy 1.25.0`, `SciPy 1.11.1`, `SEP 1.2.0`, `Astropy 5.3`, `Astroquery 0.4.6`.
+This repository is depending on `Python`, `NumPy`, `pandas`, `SciPy`, `SEP`, `Astropy`, `Astroquery`.
+Scripts are developed on `Python 3.9.6`, `NumPy 1.26.4`, `pandas 2.2.3`, `SciPy 1.13.1`, `SEP 1.4.1`, `Astropy 6.0.1`, `Astroquery 0.4.9.post1`.
