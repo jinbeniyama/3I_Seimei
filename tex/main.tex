@@ -201,30 +201,24 @@ North is to the top, and east is to the left.
 \section{Results and discussion}\label{sec:res}
 % 1. Lightcurves
 The lightcurves of \I extracted from photometry using a fixed aperture of 7~pix are shown in figure \ref{fig:lc}.
-We examined the aperture radii from 5~pix to 12~pix, and found little difference in relative brightness
-except for large aperture where the contamination from background sources are not negligible.
-The lightcurves in the $g$ and $r$ bands, which were used throughout the observations, have observation arcs of about 2.3~hrs.
-We see variations with amplitudes of approximately 0.3~mag in all lightcurves.
-However, we suppose that these variations are caused by artifacts, not by the change of its cross section with rotation.
-The relatively flat lightcurves of 3I are in good agreement with previous findings that they found no periodicity is apparent in the intensive time-series observations between July 2 and July 4, 2025 \citep{Seligman2025_3I}. \citep{Kareta2025_3I} also reported the absence of rotational variation from photometry spanning over 3~hrs obtained with the ITRF.
+We tested a range of aperture sizes from 5 to 12~pixels and found that the resulting relative brightnesses were nearly identical across this range, except for the largest apertures, where background contamination became non-negligible.
+Observations in the $g$ and $r$ bands spanned approximately 2.3 hours, yielding lightcurves that exhibit variations with amplitudes of roughly 0.3~mag.
+However, we interpret these fluctuations as likely being artifacts rather than rotational modulation due to changes in cross-sectional area.
+The relatively flat lightcurves of 3I are consistent with previous studies, which found no periodicity is apparent in the intensive time-series observations between July 2 and July 4, 2025 \citep{Seligman2025_3I}. 
+\citep{Kareta2025_3I} also reported the absence of rotational variation from photometry spanning over three hours obtained with the ITRF.
 
 % 2. Colors
-As mentioned above, the lightcurve variations in figure \ref{fig:lc} are
-possibly caused by artifacts, while they are synchronized in each color measurement.
-Thus, we could estimate reliable colors of \I.
-The colors of \I were calculated for each 600~s observation.
-The medians and standard deviations of the calculated colors 
-were derived as \gr, \ri, and \rz. 
-We summarize the derived colors of \I 
-with those reported in previous studies in table \ref{tab:col}.
-We converted colors from \cite{Bolin2025_3I} in the SDSS system 
-into the Pan-STARRS system using the equations in \cite{Tonry2012}.
-We computed the propagated uncertainties of the colors in the Pan-STARRS system
-with the photometric errors and uncertainties in conversions.
+As noted above, the lightcurve variations in figure \ref{fig:lc} are likely
+instrumental artifacts, while they appear to be synchronized across all bands, suggesting that reliable color measurements can still be obtained.
+Colors of \I were computed for each 600-second stacked image.
+We derived the median values and standard deviations of the color indices to be \gr, \ri, and \rz.
+We summarize the derived colors of \I with those reported in \citet{Bolin2025_3I} in table \ref{tab:col}.
+We converted colors from \citet{Bolin2025_3I} in the SDSS system into the Pan-STARRS system using the transformation equations from \cite{Tonry2012}.
+We computed the propagated uncertainties of the colors in the Pan-STARRS system with the photometric errors and uncertainties in transformations.
 %Table \ref{tab:col} also includes colors of \I from xxx.
 
 % 3. Reflectance spectrum
-In figure \ref{fig:ref}, we show the observed reflectance spectrum of 
+In figure \ref{fig:ref}, we show the observed reflectance spectrum of \I based on our visible spectrophotometry.
 The reflectances at the central wavelength of the $r$, $i$, and $z$-bands, 
 $R_r$, $R_i$, and $R_z$, were calculated as follows \citep[e.g.,][]{DeMeo2013}:
 \begin{eqnarray}
@@ -238,29 +232,28 @@ are colors of \I,
 whereas
 $(r-g)_\odot$, $(i-g)_\odot$, and $(z-g)_\odot$ 
 are colors of the Sun in the Pan-STARRS system.
-We referred to the absolute magnitude of the Sun in the Pan-STARRS system as
-$g = 5.03$, $r=4.64$, $i=4.52$, and $z=4.51$ \citep{Willmer2018}.
-We set uncertainties of the magnitude of the Sun as 0.02.
-The reflectance spectra in figure \ref{fig:ref} 
-are normalized at the band center of $g$ band in the Pan-STARRS system, 0.4849~$\mu$m \citep{Willmer2018}.
+We adopted solar magnitudes of $g = 5.03$, $r = 4.64$, $i = 4.52$, and $z = 4.51$ from
+\citet{Willmer2018}, and assumed an uncertainty of 0.02 in each.
+The reflectance spectra in figure \ref{fig:ref} are normalized at the band center of $g$ band in the Pan-STARRS system, 0.4849~$\mu$m \citep{Willmer2018}.
 Horizontal bars in \I's spectrum indicate filter bandwidths.
 The reflectance spectra other than \I are renormalized at the $g$ band center.
 
-Our $r-i$ color of \I is consistent with that reported in \cite{Bolin2025_3I}.
-However, our $g-r$, $i-z$, and $r-z$ color indices differ from those in \citet{Bolin2025_3I} 
-at the 2$\sigma$, 1$\sigma$, 1$\sigma$ level, respectively.
+Our $r-i$ color index of \I is consistent with that reported in \cite{Bolin2025_3I}.
+However, discrepancies exist in the $g-r$, $i-z$, and $r-z$ color indices, which differ from those in \citet{Bolin2025_3I} 
+at the 2$\sigma$, 1$\sigma$, 1$\sigma$ levels, respectively.
 %\cite{Belyakov2025_3I} reported a visible reflectance 
 %spectrum of \I, which is similar to that of 2I/Borisov \citep{deLeon2020}.
 %Since our colors of \I are redder than the spectrum of 2I/Borisov in \cite{deLeon2020}, 
 %our colors also does not match with the spectrum in \cite{Belyakov2025_3I}.
-On the other hand, our D-type asteroid like spectrum in visible wavelengths is in good agreement with the spectra reporeted in \citet{Seligman2025_3I, Opitom2025_3I, Marcos2025_3I}
-and simultaneous spectrophotometry in \citet{Seligman2025_3I}.
-The discrepancy in visible colors was also reported for 1I/`Oumuamua \citep{Meech2017, Jewitt2017, Bannister2017}.
-\citet{Bannister2017} interprets that the discrepancy indicates a change in surface color of 1I/`Oumuamua's. 
-Simultaneous spectrophotometry is a reliable method to measure the accurate colors,
-and two independent simultaneous spectrophotometry show D-type like red spectra.
-Thus we believe our simulnameasurements are less affected by artifacts even under the difficult observing conditions in terms of the lunar phase, lunar elongation, and galactic latitude.
-Further characterizations of 3I/ATLAS, especially before its perihelion passage in October 2025, will be essential to validate these results and to gain deeper insight into the interstellar object's physical properties.
+On the other hand
+In contrast, our visible reflectance spectrum, which indicates a D-type asteroid surface, is in good agreement with the results presented by \citet{Seligman2025_3I}, \citet{Opitom2025_3I}, and \citet{Marcos2025_3I},
+as well as the simultaneous spectrophotometry by \citet{Seligman2025_3I}.
+The discrepancy in visible colors have previously been reported for 1I/`Oumuamua \citep{Meech2017, Jewitt2017, Bannister2017}.
+\citet{Bannister2017} interprets that the discrepancy indicates a potential surface color change.
+Simultaneous spectrophotometry is a reliable method to measure the accurate colors, minimizing the effects of rotational variability and atmospheric changes.
+Given that two independent simultaneous spectrophotometry, this study and \citet{Seligman2025_3I}, yield consistent red, D-type-like spectra, 
+we consider our results to be reliable despite challenging observing conditions, including high lunar illumination, moderate lunar elongation, and a low galactic latitude.
+Further characterizations of 3I/ATLAS, especially prior to its perihelion passage in October 2025, will be essential to verify these results and further investigate physical characteristics of the interstellar object.
 
 \begin{figure}
  \begin{center}
