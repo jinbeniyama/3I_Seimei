@@ -62,8 +62,8 @@ Jin \textsc{Beniyama}\altaffilmark{1,2}\altemailmark\orcid{0000-0003-4863-5577} 
 
 \begin{abstract}
 3I/ATLAS, also known as C/2025 N$_1$ (ATLAS), is the third interstellar object (IEO) discovered in July 2025.
-particularly interesting because characterizing their physical properties helps us understand and test our knowledge of Solar System formation.
-Several quick response observations were performed during the first few days after the discovery, and various results, such as reflectance spectra, have been reported.
+IEOs are particularly interesting because characterizing their physical properties helps us understand and test our knowledge of Solar System formation.
+Several quick response observations of 3I/ATLAS were performed during the first few days after the discovery, and various results, such as reflectance spectra, have been reported.
 We performed simultaneous visible spectrophotometry of 3I/ATLAS from data taken using the TriColor CMOS Camera and Spectrograph (TriCCS) on the Seimei 3.8~m telescope.
 The Seimei/TriCCS observations of 3I/ALTAS were obtained in the $g$, $r$, $i$, and $z$ bands in the Pan-STARRS system on UTC July 15, 2025.
 Our lightcurves show no significant variations during the 2.3~h observation, which is in good agreement with previous studies.
@@ -88,9 +88,9 @@ Soon after the discovery, weak cometary activity was reported by several observe
 Initial characterizations were performed worldwide using instruments such as the Canada-France-Hawaii Telescope  \citep{Seligman2025_3I}, the Very Large Telescope \citep{Seligman2025_3I, Opitom2025_3I, Alvarez-Candal2025_3I}, 
 Kottamia Astronomical Observatory 1.88-m telescope, Palomar 200-inch telescope, Apache Point Observatory Astrophysical Research Consortium 3.5-m telescope \citep{Bolin2025_3I, Belyakov2025_3I}, the 10.4 m Gran Telescopio Canarias \citep{Marcos2025_3I}, the NASA Infrared Telescope Facility \citep{Kareta2025_3I}, and several smaller telescopes.
 % Yang, Bing Gemini + IRTF?
-Also, the 37 detections from the Vera C. Rubin Observatory were reported.
-The results of existing observations are diverse, making interpretation challenging.
-Independent, reliable measurements are required before the perihelion passage in October 2025, when the comet could become active.
+Also, the 37 detections from the Vera C. Rubin Observatory were reported \citep{Chandler2025_3I}.
+The results of existing observations are diverse, with different spectra reported, making interpretation challenging.
+Independent and reliable measurements are required before the perihelion passage in October 2025, when the comet could become more active.
 
 In this letter, we present the results of simultaneous visible spectrophotometry of \I.
 The observations were conducted on July 15, 2025, when \I was at a heliocentric distance of 4.03~au.
@@ -109,7 +109,7 @@ The instrument covers a field of view of $12.6\arcmin \times 7.5\arcmin$ with a 
 
 At the time, \I had a geocentric distance of about 4.03~au and a heliocentric distance of about 3.11~au.
 The phase angle of \I was approximately 7.1~deg on July 15, 2025.
-The apparent sky motion of \I was about 0.13--0.15~arcsec~s$^{-1}$.
+The apparent sky motion of \I was about 1.5~arcsec~min$^{-1}$.
 The percent of the Moon illuminated was about 76\%, and the lunar elongation was about 87-88~deg.
 The sky was clear, and the seeing measured by using in-field stars was 2.2--2.6~arcsec in the $r$ band.
 
@@ -121,10 +121,10 @@ The astrometry of in-field sources from the Gaia Data Release 2 was performed us
 
 To improve the signal-to-noise ratio (S/N) of \I while avoiding the elongations of their images, we performed mean stacking prior to photometry, as shown in figure \ref{fig:cutout}.
 Ten successive 60~s exposures were stacked to obtain images with an effective exposure times of 600~s.
-The two stacked images, which overlap with the bright stars, were excluded from the analysis.
+The two stacked frames, which overlap with the bright stars, were excluded from the analysis (see table \ref{tab:phot}).
 A typical readout time of the CMOS sensors on TriCCS is 0.4~milliseconds,
 which is negligibly small compared to the exposure time of 60~s.
-We also stacked images using the World Coordinate System (WCS) of images corrected with the surrounding sources to suppress the elongations of the images of reference stars.
+We also stacked frames using the World Coordinate System (WCS) of images corrected with the surrounding sources to suppress the elongations of the images of reference stars.
 
 A custom pipeline to perform photometry using the same instrument was developed and used in the previous papers \citep{Beniyama2023a, Beniyama2023b, Beniyama2023c, Beniyama2024, Beniyama2025b}.
 The field of 3I on that night was crowded with a galactic coordinate of $(l, b) = (7.7^{\circ}, 7.7^{\circ})$.
@@ -132,8 +132,8 @@ Thus, we developed and used a modified pipeline to analyze images of 3I.
 Circular aperture photometry was performed on both \I and the reference stars using the SExtractor-based Python package sep. 
 % BG subtraction
 The local background estimated as a median value of the $85\times85$~pix cutout image centered at the 3I or a reference star was subtracted before photometry.
-The aperture radii were set to 12~pix for reference stars, and were examined for 3I (see Section \ref{sec:res}).
-Photometry of \I was conducted on non-sidereally stacked frames, while reference stars were measured using sidereal stacks.
+The aperture radii were set to 12~pix for reference stars, and were examined for 3I (see section \ref{sec:res}).
+Photometry of \I was conducted on non-sidereally stacked frames, while reference stars were measured using sidereal stacked frames.
 
 All images were calibrated using Pan-STARRS catalog Data Release 2 \citep{Chambers2016}.
 Since the field was crowded, we manually selected reference stars that are far from any other sources.
@@ -191,7 +191,7 @@ The typical uncertainty in the magnitude zero point is approximately 0.05~mag
  \includegraphics[width=0.24\hsize]{I_fig_cutout_i.pdf}
  \includegraphics[width=0.24\hsize]{I_fig_cutout_z.pdf}
  \end{center}
-\caption{ Non-sidereally stacked images
+\caption{ Non-sidereally stacked frames
 in $g$, $r$, $i$, and $z$ bands with a total integration time of 600~s on July 15, 2025 are shown.
 Circles indicate \I.
 Field of view covers $60~\arcsec\times60~\arcsec$.
@@ -206,15 +206,17 @@ $60~\arcsec\times60~\arcsec$ field of view; north is up, east is left; circles m
 The lightcurves of \I extracted from photometry using a fixed aperture of 6~pix, corresponding to approximately 5000~km from \I, are shown in figure \ref{fig:lc}.
 We tested a range of aperture sizes from 5 to 12~pixels and found that the resulting relative brightnesses were nearly identical across this range, except for the largest apertures, where background contamination became non-negligible.
 Observations in the $g$ and $r$ bands spanned approximately 2.3 hours, yielding lightcurves that exhibit variations with amplitudes of roughly 0.3~mag.
-However, we interpret these fluctuations as likely being artifacts rather than rotational modulation due to changes in cross-sectional area.
-The relatively flat lightcurves of 3I are consistent with previous studies, which found no periodicity is apparent in the intensive time-series observations between July 2 and July 4, 2025 \citep{Seligman2025_3I}. 
-\citep{Kareta2025_3I} also reported the absence of rotational variation from photometry spanning over three hours obtained with the ITRF.
+However, we interpret these variations as likely being artifacts rather than rotational variation due to changes in its cross-section.
+The relatively flat lightcurves of \I are consistent with \citet{Seligman2025_3I}, 
+which found no periodicity is apparent in the intensive time-series observations between July 2 and July 4, 2025. 
+\citet{Kareta2025_3I} also reported the absence of rotational variation from photometry spanning over three hours obtained with the IRTF.
 
 % 2. Colors
 As noted above, the lightcurve variations in figure \ref{fig:lc} are likely
 instrumental artifacts, while they appear to be synchronized across all bands, suggesting that reliable color measurements can still be obtained.
-Colors of \I were computed for each 600-second stacked image.
-We derived the median values and standard deviations of the color indices to be \gr, \ri, and \rz.
+Colors of \I were computed for each 600-second stacked frame.
+We examined a range of aperture sizes from 5 to 12~pixels and found the resulting color indices were identical within the uncertainties as shown in figure \ref{fig:radcol}.
+We derived the median values and standard deviations of the color indices to be \gr, \ri, and \rz using a fixed aperture of 6~pix.
 We summarize the derived colors of \I with those reported in \citet{Bolin2025_3I} in table \ref{tab:col}.
 We converted colors from \citet{Bolin2025_3I} in the SDSS system into the Pan-STARRS system using the transformation equations from \cite{Tonry2012}.
 We computed the propagated uncertainties of the colors in the Pan-STARRS system with the photometric errors and uncertainties in transformations.
@@ -222,7 +224,7 @@ We computed the propagated uncertainties of the colors in the Pan-STARRS system 
 
 % 3. Reflectance spectrum
 In figure \ref{fig:ref}, we show the observed reflectance spectrum of \I based on our visible spectrophotometry.
-The reflectances at the central wavelength of the $r$, $i$, and $z$-bands, 
+The reflectances at the central wavelength of the $r$, $i$, and $z$ bands, 
 $R_r$, $R_i$, and $R_z$, were calculated as follows \citep[e.g.,][]{DeMeo2013}:
 \begin{eqnarray}
     R_r &= 10^{-0.4[(r-g)_{\mathrm{3I}}-(r-g)_\odot]}, \\
@@ -242,6 +244,7 @@ Horizontal bars in \I's spectrum indicate filter bandwidths.
 The calculated reflectance values are $R_r$ of $1.215\pm0.047$, $R_i$ of $1.320\pm0.064$, and $R_z$ of $1.454\pm0.074$.
 In figure \ref{fig:ref}, Mahlke templates of S-, D-, and Z-type asteroids \citep{Mahlke2022} are shown for comparison.
 The reflectance spectra other than \I are renormalized at the $g$ band center.
+We found that the spectrum of \I appears similar to that of D-type asteroids.
 
 Our $r-i$ color index of \I is consistent with that reported in \cite{Bolin2025_3I}.
 However, discrepancies exist in the $g-r$, $i-z$, and $r-z$ color indices, which differ from those in \citet{Bolin2025_3I} 
@@ -250,15 +253,14 @@ at the 2$\sigma$, 1$\sigma$, 1$\sigma$ levels, respectively.
 %spectrum of \I, which is similar to that of 2I/Borisov \citep{deLeon2020}.
 %Since our colors of \I are redder than the spectrum of 2I/Borisov in \cite{deLeon2020}, 
 %our colors also does not match with the spectrum in \cite{Belyakov2025_3I}.
-On the other hand
 In contrast, our visible reflectance spectrum, which indicates a D-type asteroid surface, is in good agreement with the results presented by \citet{Seligman2025_3I}, \citet{Opitom2025_3I}, and \citet{Marcos2025_3I},
 as well as the simultaneous spectrophotometry by \citet{Seligman2025_3I}.
 The discrepancy in visible colors have previously been reported for 1I/`Oumuamua \citep{Meech2017, Jewitt2017, Bannister2017}.
 \citet{Bannister2017} interprets that the discrepancy indicates a potential surface color change.
 Simultaneous spectrophotometry is a reliable method to measure the accurate colors, minimizing the effects of rotational variability and atmospheric changes.
 Given that two independent simultaneous spectrophotometry, this study and \citet{Seligman2025_3I}, yield consistent red, D-type-like spectra, 
-we consider our results to be reliable despite challenging observing conditions, including high lunar illumination, moderate lunar elongation, and a low galactic latitude.
-Further characterizations of 3I/ATLAS, especially prior to its perihelion passage in October 2025, will be essential to verify these results and further investigate physical characteristics of the interstellar object.
+we consider our results to be reliable despite challenging observing conditions, including the bright Moon and the low galactic latitude.
+Further characterizations of 3I/ATLAS, especially prior to its perihelion passage in October 2025, will be essential to verify these results and investigate physical properties of the interstellar object.
 
 \begin{figure}
  \begin{center}
@@ -281,7 +283,7 @@ Further characterizations of 3I/ATLAS, especially prior to its perihelion passag
     Color indices of 3I/ATLAS ($g - r$, $r - i$, $r - z$) 
     as a function of aperture radius. 
     The median and standard deviation of the estimated colors are indicated by circles, while the nominal colors are marked with stars.
-    Color indices remain nearly constant across aperture sizes from 5 to 12 pixels, indicating robustness of color measurement against aperture choice.
+    Color indices remain nearly constant across aperture sizes from 5 to 12 pixels, indicating robustness of color measurement against aperture size.
     {Alt text: 
     Color indices ($g - r$, $r - i$, $r - z$) of 3I/ATLAS vs. aperture radius. Circles indicate median values with standard deviation, stars indicate nominal values; colors remain stable from 5 to 12 pixels.} 
 }\label{fig:radcol}
@@ -335,12 +337,12 @@ Shaded areas indicate the standard deviations of the template spectra.
 
 \section{Conclusion}\label{sec:conc}
 We obtained simultaneous visible spectrophotometry of 3I/ATLAS using Seimei/TriCCS on July 15, 2025, when 3I/ATLAS was at a heliocentric distance of 4.03~au.
-The resulting lightcurves exhibit no significant brightness variation over a 2.3-hour time span, consistent with previously reported findings.
+The resulting lightcurves exhibit no significant brightness variation over a 2.3-hour time span, consistent with previous reports.
 We derived color indices for 3I/ATLAS of 
 \gr, \ri, and \rz in the Pan-STARRS system,
 suggesting that the surface color of 3I/ATLAS closely resembles that of typical D-type asteroids.
 Further monitoring observations of 3I/ATLAS, 
-especially before its perihelion passage in October 2025, will be essential to validate these results and to gain deeper insight into the interstellar object's physical properties.
+especially before its perihelion passage in October 2025, will be essential to validate these results and to gain deeper insight into the physical properties of the interstellar object.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{ack}
