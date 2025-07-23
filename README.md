@@ -21,7 +21,7 @@ Do photometry and derive magnitudes and colors of 3I. The results (`mag_3I_20250
 
 ## Plotting figures in the paper (hit commands in `/plot`)
 ```
-# Obtain ephem
+# Obtain ephem (not used in the paper)
 python3 ../script/I_fig_ephem.py --obtain
 # Just plot
 python3 ../script/I_fig_ephem.py
@@ -43,7 +43,7 @@ python3 ../script/I_fig_lc.py ../data/mag_3I_20250715.txt
 ```
 
 ```
-# Color-color diagram
+# Color-color diagram (not used in the paper)
 python3 ../script/I_fig_cc.py ../data/col_3I_20250715.txt ../data/col_Popescu_20250715.txt 6 --outtype pdf --magtype PS
 ```
 
