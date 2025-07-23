@@ -120,6 +120,7 @@ The astrometry of in-field sources from the Gaia Data Release 2 was performed us
 
 To improve the signal-to-noise ratio (S/N) of \I while avoiding the elongations of their images, we performed mean stacking prior to photometry, as shown in figure \ref{fig:cutout}.
 Ten successive 60~s exposures were stacked to obtain images with an effective exposure times of 600~s.
+The two stacked images, which overlap with the bright stars, were excluded from the analysis.
 A typical readout time of the CMOS sensors on TriCCS is 0.4~milliseconds,
 which is negligibly small compared to the exposure time of 60~s.
 We also stacked images using the World Coordinate System (WCS) of images corrected with the surrounding sources to suppress the elongations of the images of reference stars.
@@ -194,13 +195,14 @@ in $g$, $r$, $i$, and $z$ bands with a total integration time of 600~s on July 1
 Circles indicate \I.
 Field of view covers $60~\arcsec\times60~\arcsec$.
 North is to the top, and east is to the left.
- {Alt text: Line graph... }
+ {Alt text: Non-sidereally stacked $g$, $r$, $i$, and $z$ band images of 3I/ATLAS from July 15, 2025 (600 s total); 
+$60~\arcsec\times60~\arcsec$ field of view; north is up, east is left; circles mark 3I/ATLAS.}
 }\label{fig:cutout}
 \end{figure*}
 
 \section{Results and discussion}\label{sec:res}
 % 1. Lightcurves
-The lightcurves of \I extracted from photometry using a fixed aperture of 7~pix are shown in figure \ref{fig:lc}.
+The lightcurves of \I extracted from photometry using a fixed aperture of 6~pix, corresponding to approximately 5000~km from \I, are shown in figure \ref{fig:lc}.
 We tested a range of aperture sizes from 5 to 12~pixels and found that the resulting relative brightnesses were nearly identical across this range, except for the largest apertures, where background contamination became non-negligible.
 Observations in the $g$ and $r$ bands spanned approximately 2.3 hours, yielding lightcurves that exhibit variations with amplitudes of roughly 0.3~mag.
 However, we interpret these fluctuations as likely being artifacts rather than rotational modulation due to changes in cross-sectional area.
@@ -236,7 +238,10 @@ We adopted solar magnitudes of $g = 5.03$, $r = 4.64$, $i = 4.52$, and $z = 4.51
 \citet{Willmer2018}, and assumed an uncertainty of 0.02 in each.
 The reflectance spectra in figure \ref{fig:ref} are normalized at the band center of $g$ band in the Pan-STARRS system, 0.4849~$\mu$m \citep{Willmer2018}.
 Horizontal bars in \I's spectrum indicate filter bandwidths.
-The reflectance spectra other than \I are renormalized at the $g$ band center.
+In figure \ref{fig:ref}, 
+Mahlke templates of S-, D-, and Z-type asteroids \citep{Mahlke2022}
+are shown for comparison.
+The reflectance spectra other than \I are also renormalized at the $g$ band center.
 
 Our $r-i$ color index of \I is consistent with that reported in \cite{Bolin2025_3I}.
 However, discrepancies exist in the $g-r$, $i-z$, and $r-z$ color indices, which differ from those in \citet{Bolin2025_3I} 
@@ -260,8 +265,11 @@ Further characterizations of 3I/ATLAS, especially prior to its perihelion passag
   \includegraphics[width=8cm]{I_fig_lc.pdf} 
  \end{center}
 \caption{
-    Lightcurves of 3I.
-    {Alt text: Lightcurves of 3I.} 
+    Lightcurves of \I.
+    The observed $g$, $r$, $i$, and $z$ bands magnitudes 
+    are presented as circles, triangles, squares, and diamonds, respectively.
+    Bars indicate the 1$\sigma$ uncertainties.
+    {Alt text: Lightcurves of 3I/ATLAS in $g$, $r$, $i$, and $z$ bands shown as circles, triangles, squares, and diamonds; error bars show 1$\sigma$ uncertainties.} 
 }\label{fig:lc}
 \end{figure}
 
@@ -270,8 +278,12 @@ Further characterizations of 3I/ATLAS, especially prior to its perihelion passag
   \includegraphics[width=16cm]{I_fig_radcol.pdf} 
  \end{center}
 \caption{
-    Colors of 3I.
-    {Alt text: Colors of 3I.} 
+    Color indices of 3I/ATLAS ($g - r$, $r - i$, $r - z$) 
+    as a function of aperture radius. 
+    The median and standard deviation of the estimated colors are indicated by circles, while the nominal colors are marked with stars.
+    Color indices remain nearly constant across aperture sizes from 5 to 12 pixels, indicating robustness of color measurement against aperture choice.
+    {Alt text: 
+    Color indices ($g - r$, $r - i$, $r - z$) of 3I/ATLAS vs. aperture radius. Circles indicate median values with standard deviation, stars indicate nominal values; colors remain stable from 5 to 12 pixels.} 
 }\label{fig:radcol}
 \end{figure*}
 
@@ -284,7 +296,7 @@ Further characterizations of 3I/ATLAS, especially prior to its perihelion passag
 Reflectance spectrum of \I.
 Also, Mahlke templates of S-, D- and Z-type asteroids are shown \citep{Mahlke2022}.
 Shaded areas indicate the standard deviations of the template spectra. 
-    {Alt text: Reflectance.} 
+    {Alt text: Reflectance spectrum of 3I/ATLAS compared with S-, D-, and Z-type asteroid templates; shaded areas show 1$\sigma$ variations.} 
 }\label{fig:ref}
 \end{figure}
 
