@@ -29,7 +29,7 @@ python3 ../script/I_fig_ephem.py
 
 ```
 # Table 
-python3 ../script/I_tab_phot.py ../../data/photres_3I_mean_600s_20250715.txt
+python3 ../script/I_tab_phot.py ../data/photres_3I_mean_600s_20250715.txt
 ```
 
 ```
@@ -38,7 +38,7 @@ python3 ../script/I_fig_cutout.py
 ```
 
 ```
-# Lightcurvea
+# Lightcurve
 python3 ../script/I_fig_lc.py ../data/mag_3I_20250715.txt
 ```
 
