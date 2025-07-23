@@ -5,6 +5,7 @@ tex/bib_JB.bib
 tex/pasj02.cls
 tex/pasjbib.bst
 analysis/fig/
+plot/
 
 # Cover letter is secret.
 cover_letter_3I.pages
