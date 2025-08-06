@@ -37,11 +37,22 @@ I1_colors_Meech = dict(
       r_z = 0.41, r_zerr = 0.11,
     )
 
+# Seligman+2025, Pan-STARRS
+# LCO 2 m/MuSCAT
+# aperture radii 1.46 arcsec
+I_colors_Seligman = dict(
+      g_r = 0.85, g_rerr = 0.03,
+      r_i = 0.25, r_ierr = 0.03,
+      i_z = 0.20, i_zerr = 0.08,
+      # From r–i=0.25±0.03, i–z=–0.20±0.08
+      r_z = 0.45, r_zerr = 0.085,
+    )
+
 # Bolin+2025, SDSS, 
 #   KAO 1.88 m      UBVR 2025-07-02
 #   200 inch/NGPS   gri  2025-07-03
 #   3.5 m/ARCTIC    griz 2025-07-06
-# Note: 4 arcsec radius circular aperture (10,000 km from
+# Note: aperture radii 4 arcsec (10,000 km from
 #       the comet’s nucleus at its 3.36 - 3.45 au distance from the Earth
 I_colors_Bolin = dict(
       g_r = 0.84, g_rerr = 0.05,
@@ -80,6 +91,16 @@ I_mags_Kareta = dict(
 #   (typo? g-i = 1.06 +- 0.11 (abstract, main text))
 I_colors_Kareta = dict(
     g_i = 1.16, g_ierr = 0.20,
+    )
+
+# Puzia+2025, PS (SDSS 0.86+-0.05, PS=0.73+-0.05)
+# JB confirmed that these colors are consistent with SDSS2PS_col function.
+# Estimated from spectrum
+I_colors_Puzia = dict(
+      # SDSS
+      #g_r = 0.86, g_rerr = 0.05,
+      # PS
+      g_r = 0.73, g_rerr = 0.05,
     )
 
 
