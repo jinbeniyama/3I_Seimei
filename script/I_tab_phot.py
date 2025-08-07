@@ -155,6 +155,7 @@ if __name__ == "__main__":
     print()
 
     ## Bolin+2025
+    print(f"Bolin+2025")
     t = "2025-07-06T15:00:00"
     jd = Time(str(t), format='isot', scale='utc').jd
     loc = 500
@@ -165,5 +166,65 @@ if __name__ == "__main__":
     ## In arcsec
     rad = 4
     dist_km = angular_dist(delta, rad)
-    print(f"Heliocentric distance {r_h:.2f} au")
-    print(f"Angular distance {dist_km:.1f} km")
+    print(f"{t}")
+    print(f"  Heliocentric distance {r_h:.2f} au")
+    print(f"  Angular distance {dist_km:.1f} km")
+    print("")
+
+    ## Seligman+2025 July 2 and July 4
+    print(f"Seligman+2025")
+    # Mid night in Hawaii
+    t = "2025-07-02T10:00:00"
+    jd = Time(str(t), format='isot', scale='utc').jd
+    loc = 500
+    jpl = Horizons(id=obj, location=loc, epochs=jd)
+    eph = jpl.ephemerides()
+    delta = eph["delta"][0]
+    r_h = eph["r"][0]
+    ## In arcsec
+    rad = 1.46
+    dist_km = angular_dist(delta, rad)
+    print(f"{t}")
+    print(f"  Heliocentric distance {r_h:.2f} au")
+    print(f"  Angular distance {dist_km:.1f} km")
+    # Mid night in Hawaii
+    t = "2025-07-04T10:00:00"
+    jd = Time(str(t), format='isot', scale='utc').jd
+    loc = 500
+    jpl = Horizons(id=obj, location=loc, epochs=jd)
+    eph = jpl.ephemerides()
+    delta = eph["delta"][0]
+    r_h = eph["r"][0]
+    ## In arcsec
+    rad = 1.46
+    dist_km = angular_dist(delta, rad)
+    print(f"{t}")
+    print(f"  Heliocentric distance {r_h:.2f} au")
+    print(f"  Angular distance {dist_km:.1f} km")
+    print("")
+
+    ## Puzia+2025
+    ## In arcsec
+    ## 1 arcsec slit, 1--2 FWHM aperture
+    ## -> Difficult to compare with photometry
+    print(f"Puzia+2025")
+    t = "2025-07-04T04:50:33"
+    jd = Time(str(t), format='isot', scale='utc').jd
+    loc = 500
+    jpl = Horizons(id=obj, location=loc, epochs=jd)
+    eph = jpl.ephemerides()
+    delta = eph["delta"][0]
+    r_h = eph["r"][0]
+    print(f"{t}")
+    print(f"  Heliocentric distance {r_h:.2f} au")
+
+    t = "2025-07-04T06:36:01"
+    jd = Time(str(t), format='isot', scale='utc').jd
+    loc = 500
+    jpl = Horizons(id=obj, location=loc, epochs=jd)
+    eph = jpl.ephemerides()
+    delta = eph["delta"][0]
+    r_h = eph["r"][0]
+    print(f"{t}")
+    print(f"  Heliocentric distance {r_h:.2f} au")
+    print("")
