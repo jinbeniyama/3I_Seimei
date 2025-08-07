@@ -1072,3 +1072,9 @@ def renormalize_ref_Mahlke(
     df[key_referrl] = df[key_referrl]/df.at[idx_norm1, key_ref]
     return df
 # Reflectance =================================================================
+
+def diff_nsigma(x1, err1, x2, err2):
+    """Return difference in n-sigma
+    """
+    nsigma = np.abs(x1 - x2) / np.sqrt(err1**2 + err2**2)
+    return nsigma
