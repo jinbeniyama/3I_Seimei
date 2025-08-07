@@ -97,7 +97,7 @@ I_colors_Kareta = dict(
 
 # Puzia+2025, PS (SDSS 0.86+-0.05, PS=0.73+-0.05)
 # 4.1 m SOAR Telescop/Goodman High Throughput Spectrograph
-# 2025-07-04 UT
+# 2025-07-04 UT 04:50:33.0 to 06:36:01.0
 # JB confirmed that these colors are consistent with SDSS2PS_col function.
 # Estimated from spectrum
 I_colors_Puzia = dict(
