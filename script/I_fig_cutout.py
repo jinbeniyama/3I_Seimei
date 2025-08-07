@@ -162,6 +162,7 @@ def make_cutout_all(fi_list, center_list, band_list, out):
             center = center3[i]
             fi = fi3[i]
             ax.axis("off")
+
     
             if band == "g":
                 plt.rcParams["image.cmap"] = "Greens_r"
@@ -201,10 +202,13 @@ def make_cutout_all(fi_list, center_list, band_list, out):
 
             hdu = fits.open(fi)
             hdr = hdu[0].header
+            utc = hdr["UTC"].replace("T", " ")[:19]
             data = hdu[0].data
-            assert len(data.shape)==2, "Input 2-d fits!"
             ny, nx = data.shape
 
+            # Set title in on the center panel
+            if i == 1:
+                ax.set_title(utc)
 
             # Background ======================================================
             data = data.byteswap().newbyteorder()
@@ -388,4 +392,5 @@ if __name__ == "__main__":
     # 6 x 6
     out = f"I_fig_cutout_all.{args.outtype}"
     out = os.path.join(outdir, out)
-    make_cutout_all(fi_list_sort, co_list_sort, band_list_sort, out)
+    make_cutout_all(
+        fi_list_sort, co_list_sort, band_list_sort, out)
