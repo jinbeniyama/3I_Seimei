@@ -1,0 +1,8 @@
+astropy==6.0.1
+astroquery==0.4.9.post1
+classy==3.3.1.0
+matplotlib==3.10.3
+numpy==2.3.2
+pandas==2.3.1
+scipy==1.16.0
+sep==1.4.1

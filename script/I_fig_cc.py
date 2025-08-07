@@ -10,7 +10,8 @@ import matplotlib.pyplot as plt
 
 from I_common import (
     mycolor, mygrid, I_mags_Bolin, I_colors_Bolin, I_mags_Kareta, I_colors_Kareta,
-    stype2colmark, mymathtext, SDSS2PS_mag, SDSS2PS_col, adderr_series, adderr)
+    I_colors_Seligman, I_colors_Puzia,
+    stype2colmark, mymathtext, SDSS2PS_mag, SDSS2PS_col, adderr_series, adderr, diff_nsigma)
 from hoya.core import extract_hoya, DBPATH
 
 
@@ -75,6 +76,8 @@ def rad_vs_col(df, rad_nominal, out, width):
     ax3.legend(loc=loc, fontsize=fs)
     fig.savefig(out)
     plt.close()
+
+
 
 
 if __name__ == "__main__":
@@ -155,14 +158,14 @@ if __name__ == "__main__":
     print("")
 
     df_P_r = df_P[df_P["radius"] == args.radius]
-    g_r_P, g_rerr_P = df_P_r["g_r"].iloc[0], df_P_r["g_rerr"].iloc[0]
-    r_i_P, r_ierr_P = df_P_r["r_i"].iloc[0], df_P_r["r_ierr"].iloc[0]
-    r_z_P, r_zerr_P = df_P_r["r_z"].iloc[0], df_P_r["r_zerr"].iloc[0]
+    g_r_Po, g_rerr_Po = df_P_r["g_r"].iloc[0], df_P_r["g_rerr"].iloc[0]
+    r_i_Po, r_ierr_Po = df_P_r["r_i"].iloc[0], df_P_r["r_ierr"].iloc[0]
+    r_z_Po, r_zerr_Po = df_P_r["r_z"].iloc[0], df_P_r["r_zerr"].iloc[0]
 
     print(f" Popescu Seimei Pan-STARRS (original)")
-    print(f"    g-r {g_r_P:.3f}+-{g_rerr_P:.3f}")
-    print(f"    r-i {r_i_P:.3f}+-{r_ierr_P:.3f}")
-    print(f"    r-z {r_z_P:.3f}+-{r_zerr_P:.3f}")
+    print(f"    g-r {g_r_Po:.3f}+-{g_rerr_Po:.3f}")
+    print(f"    r-i {r_i_Po:.3f}+-{r_ierr_Po:.3f}")
+    print(f"    r-z {r_z_Po:.3f}+-{r_zerr_Po:.3f}")
     print("")
     # Read Seimei colors ======================================================
 
@@ -198,11 +201,13 @@ if __name__ == "__main__":
     g_r, g_rerr = I_colors_Bolin["g_r"], I_colors_Bolin["g_rerr"]
     r_i, r_ierr = I_colors_Bolin["r_i"], I_colors_Bolin["r_ierr"]
     i_z, i_zerr = I_colors_Bolin["i_z"], I_colors_Bolin["i_zerr"]
+
     df_B25_col_SDSS = pd.DataFrame(dict(
         g_r_SDSS=[g_r], g_rerr_SDSS=[g_rerr],
         r_i_SDSS=[r_i], r_ierr_SDSS=[r_ierr],
         i_z_SDSS=[i_z], i_zerr_SDSS=[i_zerr],
         ))
+    
     df_B25_col_PS = SDSS2PS_col(df_B25_col_SDSS)
     g_r_B    = df_B25_col_PS["g_r_PS"].iloc[0]
     g_rerr_B = df_B25_col_PS["g_rerr_PS"].iloc[0]
@@ -233,6 +238,25 @@ if __name__ == "__main__":
     g_r_Z1 = 0.42
     # 2025-06-18
     g_r_Z2 = 0.44
+
+    # 4. Seligman+2025, Pan-STARRS
+    g_r_S, g_rerr_S = I_colors_Seligman["g_r"], I_colors_Seligman["g_rerr"]
+    r_i_S, r_ierr_S = I_colors_Seligman["r_i"], I_colors_Seligman["r_ierr"]
+    i_z_S, i_zerr_S = I_colors_Seligman["i_z"], I_colors_Seligman["i_zerr"]
+    r_z_S, r_zerr_S = I_colors_Seligman["r_z"], I_colors_Seligman["r_zerr"]
+    print(f" 3I/ATLAS Seligman Pan-STARRS (original)")
+    print(f"    g-r {g_r_S:.3f}+-{g_rerr_S:.3f}")
+    print(f"    r-i {r_i_S:.3f}+-{r_ierr_S:.3f}")
+    print(f"    i-z {i_z_S:.3f}+-{i_zerr_S:.3f}")
+    print(f"    r-z {r_z_S:.3f}+-{r_zerr_S:.3f}")
+    print("")
+
+    # 5. Puzia+2025, Pan-STARRS
+    # From spectrum
+    g_r_P, g_rerr_P = I_colors_Puzia["g_r"], I_colors_Puzia["g_rerr"]
+    print(f" 3I/ATLAS Puzia Pan-STARRS (from spectrum)")
+    print(f"    g-r {g_r_P:.3f}+-{g_rerr_P:.3f}")
+    print("")
     # Other papers ============================================================
 
 
@@ -357,6 +381,23 @@ if __name__ == "__main__":
     # 3I Bolin ================================================================
 
 
+    # 3I Seligman =============================================================
+    col, mark, ms = mycolor[2], "s", 20
+    ax_u.errorbar(
+        g_r_S, r_i_S, xerr=g_rerr_S, yerr=r_ierr_S,
+        fmt=mark, markerfacecolor=col, 
+        markeredgecolor="black", ecolor='black', 
+        ms=ms, lw=2, zorder=201, label="3I/ATLAS\n  (Seligman+2025)",
+        )
+    ax_l.errorbar(
+        g_r_S, r_z_S, xerr=g_rerr_S, yerr=r_zerr_S,
+        fmt=mark, markerfacecolor=col, 
+        markeredgecolor="black", ecolor='black', 
+        ms=ms, lw=2, zorder=201, label="3I/ATLAS\n  (Seligman+2025)",
+        )
+    # 3I Seligman =============================================================
+
+
     # 3I Kareta ===============================================================
     #col, mark = "orange", "^"
     #ax_u.errorbar(
@@ -403,7 +444,7 @@ if __name__ == "__main__":
     # Popescu colors ==========================================================
 
     for ax in [ax_l, ax_u]:
-        ax.legend(loc="upper right", fontsize=14).get_frame().set_alpha(1.0)
+        ax.legend(loc="lower left", fontsize=12).get_frame().set_alpha(1.0)
 
     ax_u.text(-0.12, 1.05, "(a)", size=22, transform=ax_u.transAxes)
     ax_l.text(-0.12, 1.05, "(b)", size=22, transform=ax_l.transAxes)
@@ -413,3 +454,33 @@ if __name__ == "__main__":
     fig.savefig(out)
     plt.close()
     # 1. g-r vs. r-i/r-z ======================================================
+
+    
+    # Output color difference 
+    print()
+    ## Seligman+2025
+    g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_S, g_rerr_S)
+    r_i_sigma = diff_nsigma(r_i_I, r_ierr_I, r_i_S, r_ierr_S)
+    i_z_sigma = diff_nsigma(i_z_I, i_zerr_I, i_z_S, i_zerr_S)
+    r_z_sigma = diff_nsigma(r_z_I, r_zerr_I, r_z_S, r_zerr_S)
+    print("This study vs. Seligman+2025")
+    print(f"  g_r_sigma : {g_r_sigma:.1f}")
+    print(f"  r_i_sigma : {r_i_sigma:.1f}")
+    print(f"  i_z_sigma : {i_z_sigma:.1f}")
+    print(f"  r_z_sigma : {r_z_sigma:.1f}")
+
+    ## Bolin+2025
+    g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_B, g_rerr_B)
+    r_i_sigma = diff_nsigma(r_i_I, r_ierr_I, r_i_B, r_ierr_B)
+    i_z_sigma = diff_nsigma(i_z_I, i_zerr_I, i_z_B, i_zerr_B)
+    r_z_sigma = diff_nsigma(r_z_I, r_zerr_I, r_z_B, r_zerr_B)
+    print("This study vs. Bolin+2025")
+    print(f"  g_r_sigma : {g_r_sigma:.1f}")
+    print(f"  r_i_sigma : {r_i_sigma:.1f}")
+    print(f"  i_z_sigma : {i_z_sigma:.1f}")
+    print(f"  r_z_sigma : {r_z_sigma:.1f}")
+
+    ## Puzio+2025
+    g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_P, g_rerr_P)
+    print("This study vs. Puzio+2025")
+    print(f"  g_r_sigma : {g_r_sigma:.1f}")
