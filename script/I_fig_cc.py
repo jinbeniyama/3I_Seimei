@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from I_common import (
     mycolor, mygrid, I_mags_Bolin, I_colors_Bolin, I_mags_Kareta, I_colors_Kareta,
     I_colors_Seligman, I_colors_Puzia,
-    stype2colmark, mymathtext, SDSS2PS_mag, SDSS2PS_col, adderr_series, adderr)
+    stype2colmark, mymathtext, SDSS2PS_mag, SDSS2PS_col, adderr_series, adderr, diff_nsigma)
 from hoya.core import extract_hoya, DBPATH
 
 
@@ -76,6 +76,8 @@ def rad_vs_col(df, rad_nominal, out, width):
     ax3.legend(loc=loc, fontsize=fs)
     fig.savefig(out)
     plt.close()
+
+
 
 
 if __name__ == "__main__":
@@ -156,14 +158,14 @@ if __name__ == "__main__":
     print("")
 
     df_P_r = df_P[df_P["radius"] == args.radius]
-    g_r_P, g_rerr_P = df_P_r["g_r"].iloc[0], df_P_r["g_rerr"].iloc[0]
-    r_i_P, r_ierr_P = df_P_r["r_i"].iloc[0], df_P_r["r_ierr"].iloc[0]
-    r_z_P, r_zerr_P = df_P_r["r_z"].iloc[0], df_P_r["r_zerr"].iloc[0]
+    g_r_Po, g_rerr_Po = df_P_r["g_r"].iloc[0], df_P_r["g_rerr"].iloc[0]
+    r_i_Po, r_ierr_Po = df_P_r["r_i"].iloc[0], df_P_r["r_ierr"].iloc[0]
+    r_z_Po, r_zerr_Po = df_P_r["r_z"].iloc[0], df_P_r["r_zerr"].iloc[0]
 
     print(f" Popescu Seimei Pan-STARRS (original)")
-    print(f"    g-r {g_r_P:.3f}+-{g_rerr_P:.3f}")
-    print(f"    r-i {r_i_P:.3f}+-{r_ierr_P:.3f}")
-    print(f"    r-z {r_z_P:.3f}+-{r_zerr_P:.3f}")
+    print(f"    g-r {g_r_Po:.3f}+-{g_rerr_Po:.3f}")
+    print(f"    r-i {r_i_Po:.3f}+-{r_ierr_Po:.3f}")
+    print(f"    r-z {r_z_Po:.3f}+-{r_zerr_Po:.3f}")
     print("")
     # Read Seimei colors ======================================================
 
@@ -452,3 +454,33 @@ if __name__ == "__main__":
     fig.savefig(out)
     plt.close()
     # 1. g-r vs. r-i/r-z ======================================================
+
+    
+    # Output color difference 
+    print()
+    ## Seligman+2025
+    g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_S, g_rerr_S)
+    r_i_sigma = diff_nsigma(r_i_I, r_ierr_I, r_i_S, r_ierr_S)
+    i_z_sigma = diff_nsigma(i_z_I, i_zerr_I, i_z_S, i_zerr_S)
+    r_z_sigma = diff_nsigma(r_z_I, r_zerr_I, r_z_S, r_zerr_S)
+    print("This study vs. Seligman+2025")
+    print(f"  g_r_sigma : {g_r_sigma:.1f}")
+    print(f"  r_i_sigma : {r_i_sigma:.1f}")
+    print(f"  i_z_sigma : {i_z_sigma:.1f}")
+    print(f"  r_z_sigma : {r_z_sigma:.1f}")
+
+    ## Bolin+2025
+    g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_B, g_rerr_B)
+    r_i_sigma = diff_nsigma(r_i_I, r_ierr_I, r_i_B, r_ierr_B)
+    i_z_sigma = diff_nsigma(i_z_I, i_zerr_I, i_z_B, i_zerr_B)
+    r_z_sigma = diff_nsigma(r_z_I, r_zerr_I, r_z_B, r_zerr_B)
+    print("This study vs. Bolin+2025")
+    print(f"  g_r_sigma : {g_r_sigma:.1f}")
+    print(f"  r_i_sigma : {r_i_sigma:.1f}")
+    print(f"  i_z_sigma : {i_z_sigma:.1f}")
+    print(f"  r_z_sigma : {r_z_sigma:.1f}")
+
+    ## Puzio+2025
+    g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_P, g_rerr_P)
+    print("This study vs. Puzio+2025")
+    print(f"  g_r_sigma : {g_r_sigma:.1f}")

@@ -38,7 +38,9 @@ I1_colors_Meech = dict(
     )
 
 # Seligman+2025, Pan-STARRS
-# LCO 2 m/MuSCAT
+# July 2 and 4, 2025, 
+# Faulkes Telescope North(FTN)/MuSCAT3 
+# (FTS was used for lightcurve obs.)
 # aperture radii 1.46 arcsec
 I_colors_Seligman = dict(
       g_r = 0.85, g_rerr = 0.03,
@@ -94,6 +96,8 @@ I_colors_Kareta = dict(
     )
 
 # Puzia+2025, PS (SDSS 0.86+-0.05, PS=0.73+-0.05)
+# 4.1 m SOAR Telescop/Goodman High Throughput Spectrograph
+# 2025-07-04 UT 04:50:33.0 to 06:36:01.0
 # JB confirmed that these colors are consistent with SDSS2PS_col function.
 # Estimated from spectrum
 I_colors_Puzia = dict(
@@ -102,7 +106,6 @@ I_colors_Puzia = dict(
       # PS
       g_r = 0.73, g_rerr = 0.05,
     )
-
 
 def lam_W18(band):
     """Return wavelength and its fwhm of a filter.
@@ -1069,3 +1072,9 @@ def renormalize_ref_Mahlke(
     df[key_referrl] = df[key_referrl]/df.at[idx_norm1, key_ref]
     return df
 # Reflectance =================================================================
+
+def diff_nsigma(x1, err1, x2, err2):
+    """Return difference in n-sigma
+    """
+    nsigma = np.abs(x1 - x2) / np.sqrt(err1**2 + err2**2)
+    return nsigma
