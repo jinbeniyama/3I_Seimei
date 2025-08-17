@@ -107,6 +107,31 @@ I_colors_Puzia = dict(
       g_r = 0.73, g_rerr = 0.05,
     )
 
+
+# Santana-Ros+2025, 
+# griz colors are calibrated to ATLAS All-Sky Stellar Reference Catalog 
+# (Tonry et al. 2018, AJ, private communication w/Toni),
+# in which all griz photometry has been transformed to the 
+# Pan-STARRS gP1, rP1, iP1, and zP1 bandpasses.
+# Refcat2 magnitudes are effectively Pan-STARRS DR1 magnitudes 
+# (north of decl. -30 deg and mag > 14).
+# (see 7. Summary and Conclusions of Tonry et al., 2018, AJ)
+#   1. Faulkes Telescope North (FTN)/MuSCAT3, griz
+#   2. Faulkes Telescope South (FTS)/MuSCAT4, griz
+#   3. 1-meter Lesedi telescope, ugriz
+#   (4. Skalnaté Pleso Observatory, V-R)
+# 2025-07-02 to 2025-07-29
+# Avaraged values
+# Note: aperture radii are various.
+I_colors_Toni = dict(
+      g_r = 0.65, g_rerr = 0.03,
+      r_i = 0.27, r_ierr = 0.03,
+      i_z = 0.10, i_zerr = 0.04,
+      # From r–i=0.27±0.03, i–z=0.10±0.04
+      # -> Calculate after conversion
+      #r_z = 0.37, r_zerr = 0.05,
+    )
+
 def lam_W18(band):
     """Return wavelength and its fwhm of a filter.
 

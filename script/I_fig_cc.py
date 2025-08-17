@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 from I_common import (
     mycolor, mygrid, I_mags_Bolin, I_colors_Bolin, I_mags_Kareta, I_colors_Kareta,
-    I_colors_Seligman, I_colors_Puzia,
+    I_colors_Seligman, I_colors_Puzia, I_colors_Toni,
     stype2colmark, mymathtext, SDSS2PS_mag, SDSS2PS_col, adderr_series, adderr, diff_nsigma)
 from hoya.core import extract_hoya, DBPATH
 
@@ -257,6 +257,20 @@ if __name__ == "__main__":
     print(f" 3I/ATLAS Puzia Pan-STARRS (from spectrum)")
     print(f"    g-r {g_r_P:.3f}+-{g_rerr_P:.3f}")
     print("")
+
+    # 6. Santana-Ros, Refcat2 (~Pan-STARRS)
+    g_r_T, g_rerr_T = I_colors_Toni["g_r"], I_colors_Toni["g_rerr"]
+    r_i_T, r_ierr_T = I_colors_Toni["r_i"], I_colors_Toni["r_ierr"]
+    i_z_T, i_zerr_T = I_colors_Toni["i_z"], I_colors_Toni["i_zerr"]
+    # Calculate r_z
+    r_z_T    = r_i_T + i_z_T
+    r_zerr_T = adderr(r_ierr_T, i_zerr_T)
+    print(f" 3I/ATLAS Santana-Ros ~Pan-STARRS")
+    print(f"    g-r {g_r_T:.3f}+-{g_rerr_T:.3f}")
+    print(f"    r-i {r_i_T:.3f}+-{r_ierr_T:.3f}")
+    print(f"    i-z {i_z_T:.3f}+-{i_zerr_T:.3f}")
+    print(f"    r-z {r_z_T:.3f}+-{r_zerr_T:.3f}")
+    print("")
     # Other papers ============================================================
 
 
@@ -410,6 +424,23 @@ if __name__ == "__main__":
     # 3I Kareta ===============================================================
 
 
+    # 3I Toni =================================================================
+    col, mark, ms = mycolor[3], "h", 20
+    ax_u.errorbar(
+        g_r_T, r_i_T, xerr=g_rerr_T, yerr=r_ierr_T,
+        fmt=mark, markerfacecolor=col, 
+        markeredgecolor="black", ecolor='black', 
+        ms=ms, lw=2, zorder=201, label="3I/ATLAS\n  (Santana-Ros+2025)",
+        )
+    ax_l.errorbar(
+        g_r_T, r_z_T, xerr=g_rerr_T, yerr=r_zerr_T,
+        fmt=mark, markerfacecolor=col, 
+        markeredgecolor="black", ecolor='black', 
+        ms=ms, lw=2, zorder=201, label="3I/ATLAS\n  (Santana-Ros+2025)",
+        )
+    # 3I Toni =================================================================
+
+
     # Popescu colors ==========================================================
     if args.Popescu:
         # Seimei
@@ -484,3 +515,14 @@ if __name__ == "__main__":
     g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_P, g_rerr_P)
     print("This study vs. Puzio+2025")
     print(f"  g_r_sigma : {g_r_sigma:.1f}")
+
+    ## Santana-Ros+2025
+    g_r_sigma = diff_nsigma(g_r_I, g_rerr_I, g_r_T, g_rerr_T)
+    r_i_sigma = diff_nsigma(r_i_I, r_ierr_I, r_i_T, r_ierr_T)
+    i_z_sigma = diff_nsigma(i_z_I, i_zerr_I, i_z_T, i_zerr_T)
+    r_z_sigma = diff_nsigma(r_z_I, r_zerr_I, r_z_T, r_zerr_T)
+    print("This study vs. Santana-Ros+2025")
+    print(f"  g_r_sigma : {g_r_sigma:.1f}")
+    print(f"  r_i_sigma : {r_i_sigma:.1f}")
+    print(f"  i_z_sigma : {i_z_sigma:.1f}")
+    print(f"  r_z_sigma : {r_z_sigma:.1f}")
