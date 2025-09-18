@@ -171,10 +171,14 @@ if __name__ == "__main__":
     print(f"  Angular distance {dist_km:.1f} km")
     print("")
 
-    ## Seligman+2025 July 2 and July 4
+    ## Seligman+2025 July 2 and July 3 (private com.)
+    # "2025-07-02 12:03"
+    # "2025-07-02 13:06"
+    # "2025-07-03 09:38"
+    # "2025-07-03 11:05"
     print(f"Seligman+2025")
-    # Mid night in Hawaii
-    t = "2025-07-02T10:00:00"
+    t = "2025-07-02T12:03"
+
     jd = Time(str(t), format='isot', scale='utc').jd
     loc = 500
     jpl = Horizons(id=obj, location=loc, epochs=jd)
@@ -187,8 +191,8 @@ if __name__ == "__main__":
     print(f"{t}")
     print(f"  Heliocentric distance {r_h:.2f} au")
     print(f"  Angular distance {dist_km:.1f} km")
-    # Mid night in Hawaii
-    t = "2025-07-04T10:00:00"
+
+    t = "2025-07-03T11:05"
     jd = Time(str(t), format='isot', scale='utc').jd
     loc = 500
     jpl = Horizons(id=obj, location=loc, epochs=jd)
